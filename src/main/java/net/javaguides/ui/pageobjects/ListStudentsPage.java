@@ -3,6 +3,7 @@ package net.javaguides.ui.pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class ListStudentsPage {
 
@@ -39,6 +40,53 @@ public class ListStudentsPage {
     @FindBy(xpath = "//tr[1]//a[text()='Delete']")
     private WebElement firstLineDeleteInListStudents;
 
+    public WebElement getTextTitle() {
+        return textTitle;
+    }
+
+    public WebElement getButtonAddStudent() {
+        return buttonAddStudent;
+    }
+
+    public WebElement getTextTableTitleStudentFirstName() {
+        return textTableTitleStudentFirstName;
+    }
+
+    public WebElement getTextTableTitleStudentLastName() {
+        return textTableTitleStudentLastName;
+    }
+
+    public WebElement getTextTableTitleStudentEmail() {
+        return textTableTitleStudentEmail;
+    }
+
+    public WebElement getTextTableTitleActions() {
+        return textTableTitleActions;
+    }
+
+    public WebElement getFirstLineFirstNameInListStudents() {
+        return firstLineFirstNameInListStudents;
+    }
+
+    public WebElement getFirstLineLastNameInListStudents() {
+        return firstLineLastNameInListStudents;
+    }
+
+    public WebElement getFirstLineEmailInListStudents() {
+        return firstLineEmailInListStudents;
+    }
+
+    public WebElement getFirstLineUpdateInListStudents() {
+        return firstLineUpdateInListStudents;
+    }
+
+    public WebElement getFirstLineDeleteInListStudents() {
+        return firstLineDeleteInListStudents;
+    }
+
+    public ListStudentsPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
 public boolean isDisplayedTitle() {
     return textTitle.isDisplayed();
 }
