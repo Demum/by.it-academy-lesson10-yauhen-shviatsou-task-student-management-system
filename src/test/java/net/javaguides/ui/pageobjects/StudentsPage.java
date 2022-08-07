@@ -11,7 +11,7 @@ public static final By TITLE_STUDENT_PAGE = By.xpath("//h1[text()=' List Student
     public static final By TITLE_TABLE_EMAIL = By.xpath("//th[text()=' Student Email ']");
     public static final By TITLE_TABLE_ACTIONS = By.xpath("//th[text()=' Actions '] ");
     public static final By FIRST_LINE_TABLE_FIRST_NAME = By.xpath("//tr[1]/td[1]");
-    public static final By FIRST_LINE_TABLE_SECOND_NAME = By.xpath("//tr[1]/td[1]");
+    public static final By FIRST_LINE_TABLE_LAST_NAME = By.xpath("//tr[1]/td[1]");
     public static final By FIRST_LINE_TABLE_EMAIL = By.xpath("//tr[1]/td[3]");
     public static final By FIRST_LINE_TABLE_BUTTON_UPDATE = By.xpath("//tr[1]//a[text()='Update'] ");
     public static final By FIRST_LINE_TABLE_BUTTON_DELETE = By.xpath("//tr[1]//a[text()='Delete'] ");
@@ -29,6 +29,9 @@ public static final By TITLE_STUDENT_PAGE = By.xpath("//h1[text()=' List Student
     public boolean isDisplayedTitleTableFisrtName(){
         return driver.findElement(TITLE_TABLE_FIRST_NAME).isDisplayed();
             }
+    public boolean isDisplayedTitleTableLasttName(){
+        return driver.findElement(TITLE_TABLE_LAST_NAME).isDisplayed();
+    }
 
     public boolean isDisplayedTitleTableEmail(){
         return driver.findElement(TITLE_TABLE_EMAIL).isDisplayed();
@@ -39,8 +42,8 @@ public static final By TITLE_STUDENT_PAGE = By.xpath("//h1[text()=' List Student
     public boolean isDisplayedFirstLineTableFirstName(){
         return driver.findElement(FIRST_LINE_TABLE_FIRST_NAME).isDisplayed();
     }
-    public boolean isDisplayedFirstLineTableSecondName(){
-        return driver.findElement(FIRST_LINE_TABLE_SECOND_NAME).isDisplayed();
+    public boolean isDisplayedFirstLineTableLastdName(){
+        return driver.findElement(FIRST_LINE_TABLE_LAST_NAME).isDisplayed();
     }
     public boolean isDisplayedFirstLineTableEmail(){
         return driver.findElement(FIRST_LINE_TABLE_EMAIL).isDisplayed();
