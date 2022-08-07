@@ -14,6 +14,7 @@ ListStudentsPage listStudentsPage;
 @BeforeMethod
     public void opentlistStudentPage(){
     listStudentsPage = new ListStudentsPage(driver);
+    driver.get(BASE_URL);
     }
 
     @Test
