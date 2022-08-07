@@ -1,11 +1,12 @@
 package net.javaguides.ui.pageobjects;
 
+import net.javaguides.ui.driver.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ListStudentsPage {
+public class ListStudentsPage  {
 
     @FindBy(xpath = "//h1[text()=' List Students ']")
     private WebElement textTitle;
@@ -85,8 +86,11 @@ public class ListStudentsPage {
     }
 
     public ListStudentsPage(WebDriver driver) {
+        driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
+
+
 public boolean isDisplayedTitle() {
     return textTitle.isDisplayed();
 }
