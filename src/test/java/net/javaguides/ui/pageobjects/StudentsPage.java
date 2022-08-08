@@ -1,5 +1,6 @@
 package net.javaguides.ui.pageobjects;
 
+import net.javaguides.ui.utils.Constants;
 import org.openqa.selenium.By;
 
 public class StudentsPage extends BasePage{
@@ -16,9 +17,7 @@ public static final By TITLE_STUDENT_PAGE = By.xpath("//h1[text()=' List Student
     public static final By FIRST_LINE_TABLE_BUTTON_UPDATE = By.xpath("//tr[1]//a[text()='Update'] ");
     public static final By FIRST_LINE_TABLE_BUTTON_DELETE = By.xpath("//tr[1]//a[text()='Delete'] ");
 
-    public StudentsPage(String url) {
-        super(url);
-    }
+
     public boolean isDisplayedTitle() {
         return driver.findElement(TITLE_STUDENT_PAGE).isDisplayed();
     }
@@ -26,6 +25,7 @@ public static final By TITLE_STUDENT_PAGE = By.xpath("//h1[text()=' List Student
         return driver.findElement(BUTTON_ADD_STUDENT).isDisplayed();
 
     }
+
     public boolean isDisplayedTitleTableFisrtName(){
         return driver.findElement(TITLE_TABLE_FIRST_NAME).isDisplayed();
             }
@@ -53,6 +53,10 @@ public static final By TITLE_STUDENT_PAGE = By.xpath("//h1[text()=' List Student
     }
     public boolean isDisplayedFirstLineTableButtonDelete(){
         return driver.findElement(FIRST_LINE_TABLE_BUTTON_DELETE).isDisplayed();
+    }
+    public void clickButtonAddStudent(){
+        driver.get(Constants.BASE_URL);
+        driver.findElement(BUTTON_ADD_STUDENT);
     }
 
 }
