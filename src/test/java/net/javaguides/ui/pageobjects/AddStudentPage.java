@@ -4,6 +4,8 @@ import net.javaguides.ui.utils.Constants;
 import net.javaguides.ui.utils.RandomValue;
 import org.openqa.selenium.By;
 
+import static net.javaguides.ui.utils.RandomValue.*;
+
 public class AddStudentPage extends StudentsPage {
     public static final By TEXT_TITLE = By.xpath("//h1[text()=' Create New Student ']");
     public static final By TEXT_LABEL_FIRST_NAME = By.xpath("//label[text()=' Student First Name ']");
@@ -30,15 +32,13 @@ public class AddStudentPage extends StudentsPage {
     public boolean isDIsplayedLabelButtonSubmit(){
         return driver.findElement(BUTTON_SUBMIT).isDisplayed();
     }
- String firstName=RandomValue.setRandomString();
-    String lastName=RandomValue.setRandomString();
-    String email = RandomValue.setUserEmail();
+
     @Override
     public void clickButtonAddStudent() {
         super.clickButtonAddStudent();
-                driver.findElement(INPUT_FIRST_NAME).sendKeys(firstName);
-                driver.findElement(INPUT_LAST_NAME).sendKeys(lastName);
-                driver.findElement(INPUT_EMAIL).sendKeys(email);
+                driver.findElement(INPUT_FIRST_NAME).sendKeys(RandomValue.firstName);
+                driver.findElement(INPUT_LAST_NAME).sendKeys(RandomValue.lastName);
+                driver.findElement(INPUT_EMAIL).sendKeys(RandomValue.email);
                 driver.findElement(BUTTON_SUBMIT);
     }
 }
