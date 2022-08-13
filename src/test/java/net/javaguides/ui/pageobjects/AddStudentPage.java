@@ -33,12 +33,12 @@ public class AddStudentPage extends StudentsPage {
         return driver.findElement(BUTTON_SUBMIT).isDisplayed();
     }
 
-    @Override
-    public void clickButtonAddStudent() {
-        super.clickButtonAddStudent();
-                driver.findElement(INPUT_FIRST_NAME).sendKeys(RandomValue.firstName);
-                driver.findElement(INPUT_LAST_NAME).sendKeys(RandomValue.lastName);
-                driver.findElement(INPUT_EMAIL).sendKeys(RandomValue.email);
-                driver.findElement(BUTTON_SUBMIT);
-    }
+//    @Override
+//    public AddStudentPage clickButtonAddStudent() {
+//                driver.findElement(INPUT_FIRST_NAME).sendKeys(RandomValue.firstName);
+//                driver.findElement(INPUT_LAST_NAME).sendKeys(RandomValue.lastName);
+//                driver.findElement(INPUT_EMAIL).sendKeys(RandomValue.email);
+//                driver.findElement(BUTTON_SUBMIT);
+//                return this;
+//    }
 }

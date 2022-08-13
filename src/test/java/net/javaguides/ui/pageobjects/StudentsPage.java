@@ -2,61 +2,132 @@ package net.javaguides.ui.pageobjects;
 
 import net.javaguides.ui.utils.Constants;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class StudentsPage extends BasePage{
+    @FindBy(xpath = "//button[@data-testid='more-button']")
+    private WebElement buttonMoreOptions;
 
-public static final By TITLE_STUDENT_PAGE = By.xpath("//h1[text()=' List Students ']");
-    public static final By BUTTON_ADD_STUDENT = By.xpath("//a[@href='/students/new']");
-    public static final By TITLE_TABLE_FIRST_NAME = By.xpath("//th[text()=' Student First Name']");
-    public static final By TITLE_TABLE_LAST_NAME = By.xpath("//th[text()=' Student Last Name'] ");
-    public static final By TITLE_TABLE_EMAIL = By.xpath("//th[text()=' Student Email ']");
-    public static final By TITLE_TABLE_ACTIONS = By.xpath("//th[text()=' Actions '] ");
-    public static final By FIRST_LINE_TABLE_FIRST_NAME = By.xpath("//tr[1]/td[1]");
-    public static final By FIRST_LINE_TABLE_LAST_NAME = By.xpath("//tr[1]/td[1]");
-    public static final By FIRST_LINE_TABLE_EMAIL = By.xpath("//tr[1]/td[3]");
-    public static final By FIRST_LINE_TABLE_BUTTON_UPDATE = By.xpath("//tr[1]//a[text()='Update'] ");
-    public static final By FIRST_LINE_TABLE_BUTTON_DELETE = By.xpath("//tr[1]//a[text()='Delete'] ");
+    @FindBy(xpath = "//h1[text()=' List Students ']")
+    private WebElement textTitle;
+
+    @FindBy(xpath = "//a[@href='/students/new']")
+    private WebElement buttonAddStudent;
+
+    @FindBy(xpath = "//th[text()=' Student First Name']")
+    private WebElement textTableTitleStudentFirstName;
+
+    @FindBy(xpath = "//th[text()=' Student Last Name']")
+    private WebElement textTableTitleStudentLastName;
+
+    @FindBy(xpath = "//th[text()=' Student Email ']")
+    private WebElement textTableTitleStudentEmail;
+
+    @FindBy(xpath = "//th[text()=' Actions ']")
+    private WebElement textTableTitleActions;
+
+    @FindBy(xpath = "//tr[1]/td[1]")
+    private WebElement firstLineFirstNameInListStudents;
+
+    @FindBy(xpath = "//tr[1]/td[2]")
+    private WebElement firstLineLastNameInListStudents;
+
+    @FindBy(xpath = "//tr[1]/td[3]")
+    private WebElement firstLineEmailInListStudents;
+
+    @FindBy(xpath = "//tr[1]//a[text()='Update']")
+    private WebElement firstLineUpdateInListStudents;
+
+    @FindBy(xpath = "//tr[1]//a[text()='Delete']")
+    private WebElement firstLineDeleteInListStudents;
+
+    public StudentsPage openPage(){
+        driver.get(Constants.BASE_URL);
+        return this;
+    }
+    public WebElement getTextTitle() {
+        return textTitle;
+    }
+
+    public WebElement getButtonAddStudent() {
+        return buttonAddStudent;
+    }
+
+    public WebElement getTextTableTitleStudentFirstName() {
+        return textTableTitleStudentFirstName;
+    }
+
+    public WebElement getTextTableTitleStudentLastName() {
+        return textTableTitleStudentLastName;
+    }
+
+    public WebElement getTextTableTitleStudentEmail() {
+        return textTableTitleStudentEmail;
+    }
+
+    public WebElement getTextTableTitleActions() {
+        return textTableTitleActions;
+    }
+
+    public WebElement getFirstLineFirstNameInListStudents() {
+        return firstLineFirstNameInListStudents;
+    }
+
+    public WebElement getFirstLineLastNameInListStudents() {
+        return firstLineLastNameInListStudents;
+    }
+
+    public WebElement getFirstLineEmailInListStudents() {
+        return firstLineEmailInListStudents;
+    }
+
+    public WebElement getFirstLineUpdateInListStudents() {
+        return firstLineUpdateInListStudents;
+    }
+
+    public WebElement getFirstLineDeleteInListStudents() {
+        return firstLineDeleteInListStudents;
+    }
 
 
     public boolean isDisplayedTitle() {
-        return driver.findElement(TITLE_STUDENT_PAGE).isDisplayed();
+        return textTitle.isDisplayed();
     }
     public boolean isDisplayedButtonAddStudent(){
-        return driver.findElement(BUTTON_ADD_STUDENT).isDisplayed();
-
+        return   buttonAddStudent.isDisplayed();
+    }
+    public boolean isDisplayedTextTableTitleStudentFirstName(){
+        return textTableTitleStudentFirstName.isDisplayed();
+    }
+    public boolean isDisplayedTextTableTitleStudentLastName(){
+        return textTableTitleStudentLastName.isDisplayed();
+    }
+    public boolean isDisplayedTextTableTitleStudentEmail(){
+        return textTableTitleStudentEmail.isDisplayed();
+    }
+    public boolean isDisplayedTextTableTitleStudentAction(){
+        return textTableTitleActions.isDisplayed();
+    }
+    public boolean isDisplayedFirstLineFirstNameInListStudents(){
+        return firstLineFirstNameInListStudents.isDisplayed();
+    }
+    public boolean isDisplayedFirstLineLastNameInListStudents(){
+        return firstLineLastNameInListStudents.isDisplayed();
+    }
+    public boolean isDisplayedFirstLineEmailInListStudents() {
+        return firstLineEmailInListStudents.isDisplayed();
+    }
+    public boolean isDisplayedFirstLineUpdateInListStudents() {
+        return firstLineUpdateInListStudents.isDisplayed();
+    }
+    public boolean isDisplayedFirstLineDeleteInListStudents() {
+        return firstLineDeleteInListStudents.isDisplayed();
     }
 
-    public boolean isDisplayedTitleTableFisrtName(){
-        return driver.findElement(TITLE_TABLE_FIRST_NAME).isDisplayed();
-            }
-    public boolean isDisplayedTitleTableLasttName(){
-        return driver.findElement(TITLE_TABLE_LAST_NAME).isDisplayed();
+    public StudentsPage clickButtonAddStudent (){
+        waitForElementToBeClickable(buttonAddStudent);
+        buttonAddStudent.click();
+        return this;
     }
-
-    public boolean isDisplayedTitleTableEmail(){
-        return driver.findElement(TITLE_TABLE_EMAIL).isDisplayed();
-    }
-    public boolean isDisplayedTitleTableActions(){
-        return driver.findElement(TITLE_TABLE_ACTIONS).isDisplayed();
-    }
-    public boolean isDisplayedFirstLineTableFirstName(){
-        return driver.findElement(FIRST_LINE_TABLE_FIRST_NAME).isDisplayed();
-    }
-    public boolean isDisplayedFirstLineTableLastdName(){
-        return driver.findElement(FIRST_LINE_TABLE_LAST_NAME).isDisplayed();
-    }
-    public boolean isDisplayedFirstLineTableEmail(){
-        return driver.findElement(FIRST_LINE_TABLE_EMAIL).isDisplayed();
-    }
-    public boolean isDisplayedFirstLineTableButtonUpdate(){
-        return driver.findElement(FIRST_LINE_TABLE_BUTTON_UPDATE).isDisplayed();
-    }
-    public boolean isDisplayedFirstLineTableButtonDelete(){
-        return driver.findElement(FIRST_LINE_TABLE_BUTTON_DELETE).isDisplayed();
-    }
-    public void clickButtonAddStudent(){
-        driver.get(Constants.BASE_URL);
-        driver.findElement(BUTTON_ADD_STUDENT);
-    }
-
 }
