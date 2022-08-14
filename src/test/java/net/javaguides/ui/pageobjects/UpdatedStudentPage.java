@@ -28,12 +28,10 @@ public class UpdatedStudentPage extends BasePage {
         }
     }
     public UpdatedStudentPage clickButtonUpdateCreatedStudent (){
-        waitForElementToBeClickable(driver.findElement(BUTTON_UPDATE_CREATED_STUDENT));
         driver.findElement(BUTTON_UPDATE_CREATED_STUDENT).click();
         return this;
     }
     public UpdatedStudentPage clickButtonDeleteCreatedStudent (){
-        waitForElementToBeClickable(driver.findElement(BUTTON_DELETE_CREATED_STUDENT));
         driver.findElement(BUTTON_DELETE_CREATED_STUDENT).click();
         return this;
     }

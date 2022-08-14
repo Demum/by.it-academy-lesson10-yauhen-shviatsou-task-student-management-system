@@ -67,10 +67,14 @@ public class StudentsPageTest extends BaseTest {
     public void testTextAndButtonUpdateStudentPage() {
         StudentsPage studentsPage = new StudentsPage();
         studentsPage.openPage();
-       studentsPage.clickButtonFirstLineUpdateInListStudent();
-
-    //   System.out.println(updatedStudentPage.BUTTON_UPDATE_CREATED_STUDENT.toString()+"/////");
-     //   updatedStudentPage.clickButtonUpdateCreatedStudent();
+     //  studentsPage.clickButtonFirstLineUpdateInListStudent();
+        studentsPage.clickButtonAddStudent();
+        addStudentPage.typeFirstName()
+                .typeLastName()
+                .typeEmail()
+                .clickButtonSubmit();
+    System.out.println(updatedStudentPage.BUTTON_UPDATE_CREATED_STUDENT.toString()+"/////");
+    updatedStudentPage.clickButtonUpdateCreatedStudent();
 
         Assert.assertTrue(updateStudentPage.isDIsplayedTextTitleUpdateStudentPage(), "TextTitle is not displayed at UpdateStudentPage");
         Assert.assertTrue(updateStudentPage.isDIsplayedTextLabelFirstName(), "TextLabelFirstName is not displayed at UpdateStudentPage");
@@ -83,18 +87,30 @@ public class StudentsPageTest extends BaseTest {
     public void testUpdateFuтctionalUpdateStudentPage(){
         StudentsPage studentsPage = new StudentsPage();
         studentsPage.openPage();
-        studentsPage.clickButtonFirstLineUpdateInListStudent();
-
+        studentsPage.clickButtonAddStudent();
+        addStudentPage.typeFirstName()
+                .typeLastName()
+                .typeEmail()
+                .clickButtonSubmit();
+        updatedStudentPage.clickButtonUpdateCreatedStudent();
         updateStudentPage.typeFirstName()
                 .typeLastName()
                 .typeEmail()
                 .clickButtonSubmit();
-        System.out.println(UpdatedStudentPage.NEW_STUDENT_FIRST_NAME+"/////");
-        System.out.println(RandomValue.newFirstName);
-        System.out.println(RandomValue.newFirstName);
-        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_FIRST_NAME));
+               Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_FIRST_NAME));
         Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_LAST_NAME));
         Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_EMAIL));
+    }
+    @Test
+    public void testDeleteStudentStudentPage(){
+        StudentsPage studentsPage = new StudentsPage();
+        studentsPage.openPage();
+        studentsPage.clickButtonAddStudent();
+        addStudentPage.typeFirstName()
+                .typeLastName()
+                .typeEmail()
+                .clickButtonSubmit();
+        updatedStudentPage.clickButtonDeleteCreatedStudent();
     }
 
     }

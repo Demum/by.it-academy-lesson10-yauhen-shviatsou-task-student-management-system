@@ -92,4 +92,9 @@ public class StudentsPage extends BasePage{
         firstLineUpdateInListStudents.click();
         return this;
     }
+    public StudentsPage clickButtonFirstLineDeleteInListStudents(){
+        waitForElementToBeClickable(firstLineDeleteInListStudents);
+        firstLineDeleteInListStudents.click();
+        return this;
+    }
 }
