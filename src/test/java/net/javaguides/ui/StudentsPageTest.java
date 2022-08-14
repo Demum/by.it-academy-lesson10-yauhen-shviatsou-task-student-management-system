@@ -68,9 +68,10 @@ public class StudentsPageTest extends BaseTest {
         StudentsPage studentsPage = new StudentsPage();
         studentsPage.openPage();
        studentsPage.clickButtonFirstLineUpdateInListStudent();
-//        System.out.println(updatedStudentPage.BUTTON_UPDATE_CREATED_STUDENT.toString()+"/////");
-//        updatedStudentPage.clickButtonUpdateCreatedStudent();
-        UpdateStudentPage updateStudentPage = new UpdateStudentPage();
+
+    //   System.out.println(updatedStudentPage.BUTTON_UPDATE_CREATED_STUDENT.toString()+"/////");
+     //   updatedStudentPage.clickButtonUpdateCreatedStudent();
+
         Assert.assertTrue(updateStudentPage.isDIsplayedTextTitleUpdateStudentPage(), "TextTitle is not displayed at UpdateStudentPage");
         Assert.assertTrue(updateStudentPage.isDIsplayedTextLabelFirstName(), "TextLabelFirstName is not displayed at UpdateStudentPage");
         Assert.assertTrue(updateStudentPage.isDIsplayedTextLabelLastName(), "TextLabelLastName is not displayed at UpdateStudentPage");
@@ -95,6 +96,7 @@ public class StudentsPageTest extends BaseTest {
         Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_LAST_NAME));
         Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_EMAIL));
     }
+
     }
 
 
