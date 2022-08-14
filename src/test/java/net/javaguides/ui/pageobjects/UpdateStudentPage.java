@@ -5,9 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class UpdateStudentPage extends BasePage {
-    public static String newFirstName = RandomValue.setStudentFirstName();
-    public static String newLastName = RandomValue.setStudentLastName();
-    public static String newEmail = RandomValue.setStudentEmail();
+
     @FindBy(xpath = "//h1[text()=' Update Student ']")
     private WebElement textTitle;
     @FindBy(xpath = "//label[text()=' Student First Name ']")
@@ -53,19 +51,19 @@ public class UpdateStudentPage extends BasePage {
 
     public UpdateStudentPage typeFirstName() {
         inputFirstName.clear();
-        inputFirstName.sendKeys(newFirstName);
+        inputFirstName.sendKeys(RandomValue.newFirstName);
         return this;
     }
 
     public UpdateStudentPage typeLastName() {
         inputLastName.clear();
-        inputLastName.sendKeys(newLastName);
+        inputLastName.sendKeys(RandomValue.newLastName);
         return this;
     }
 
     public UpdateStudentPage typeEmail() {
         inputEmail.clear();
-        inputEmail.sendKeys(newEmail);
+        inputEmail.sendKeys(RandomValue.newEmail);
         return this;
     }
 

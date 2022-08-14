@@ -4,10 +4,9 @@ import net.javaguides.ui.utils.RandomValue;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
 public class AddStudentPage extends StudentsPage {
-    public  static  String newFirstName = RandomValue.setStudentFirstName();
-    public static String newLastName = RandomValue.setStudentLastName();
-    public static String newEmail = RandomValue.setStudentEmail();
+
     @FindBy(xpath = "//h1[text()=' Create New Student ']")
     private WebElement textTitle;
     @FindBy(xpath = "//label[text()=' Student First Name ']")
@@ -53,19 +52,19 @@ public class AddStudentPage extends StudentsPage {
 
     public AddStudentPage typeFirstName() {
         inputFirstName.clear();
-        inputFirstName.sendKeys(newFirstName);
+        inputFirstName.sendKeys(RandomValue.newFirstName);
         return this;
     }
 
     public AddStudentPage typeLastName() {
         inputLastName.clear();
-        inputLastName.sendKeys(newLastName);
+        inputLastName.sendKeys(RandomValue.newLastName);
         return this;
     }
 
     public AddStudentPage typeEmail() {
         inputEmail.clear();
-        inputEmail.sendKeys(newEmail);
+        inputEmail.sendKeys(RandomValue.newEmail);
         return this;
     }
 

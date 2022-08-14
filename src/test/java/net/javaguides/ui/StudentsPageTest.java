@@ -4,6 +4,7 @@ import net.javaguides.ui.pageobjects.AddStudentPage;
 import net.javaguides.ui.pageobjects.StudentsPage;
 import net.javaguides.ui.pageobjects.UpdateStudentPage;
 import net.javaguides.ui.pageobjects.UpdatedStudentPage;
+import net.javaguides.ui.utils.RandomValue;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -76,22 +77,24 @@ public class StudentsPageTest extends BaseTest {
         Assert.assertTrue(updateStudentPage.isDIsplayedTextLabelEmail(), "TextLabelEmail is not displayed at UpdateStudentPage");
         Assert.assertTrue(updateStudentPage.isDIsplayedButtonSubmit(), "TextLabelEmail is not displayed at UpdateStudentPage");
     }
+    UpdateStudentPage updateStudentPage = new UpdateStudentPage();
     @Test
     public void testUpdateFuтctionalUpdateStudentPage(){
         StudentsPage studentsPage = new StudentsPage();
         studentsPage.openPage();
         studentsPage.clickButtonFirstLineUpdateInListStudent();
-        UpdateStudentPage updateStudentPage = new UpdateStudentPage();
+
         updateStudentPage.typeFirstName()
                 .typeLastName()
                 .typeEmail()
                 .clickButtonSubmit();
+        System.out.println(UpdatedStudentPage.NEW_STUDENT_FIRST_NAME+"/////");
+        System.out.println(RandomValue.newFirstName);
+        System.out.println(RandomValue.newFirstName);
         Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_FIRST_NAME));
         Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_LAST_NAME));
         Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_EMAIL));
     }
-
-
     }
 
 
