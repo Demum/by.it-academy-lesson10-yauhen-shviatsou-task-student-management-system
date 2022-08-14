@@ -66,6 +66,24 @@ public class UpdateStudentPage extends BasePage {
         inputEmail.sendKeys(RandomValue.newEmail);
         return this;
     }
+    public UpdateStudentPage typeUpdateFirstName() {
+        inputFirstName.clear();
+        inputFirstName.sendKeys(RandomValue.updateNewFirstName);
+        return this;
+    }
+
+    public UpdateStudentPage typeUpdateLastName() {
+        inputLastName.clear();
+        inputLastName.sendKeys(RandomValue.updateNewLastName);
+        return this;
+    }
+
+    public UpdateStudentPage typeUpdateEmail() {
+        inputEmail.clear();
+        inputEmail.sendKeys(RandomValue.updateNewEmail);
+        return this;
+    }
+
 
     public UpdateStudentPage clickButtonSubmit() {
         waitForElementToBeClickable(buttonSubmit);

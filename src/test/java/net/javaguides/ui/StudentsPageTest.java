@@ -4,7 +4,6 @@ import net.javaguides.ui.pageobjects.AddStudentPage;
 import net.javaguides.ui.pageobjects.StudentsPage;
 import net.javaguides.ui.pageobjects.UpdateStudentPage;
 import net.javaguides.ui.pageobjects.UpdatedStudentPage;
-import net.javaguides.ui.utils.RandomValue;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,7 +11,8 @@ import org.testng.annotations.Test;
 public class StudentsPageTest extends BaseTest {
 
     AddStudentPage addStudentPage = new AddStudentPage();
-
+    UpdatedStudentPage updatedStudentPage = new UpdatedStudentPage();
+    UpdateStudentPage updateStudentPage = new UpdateStudentPage();
 
     @Test
     public void testStudentsPage() {
@@ -48,43 +48,24 @@ public class StudentsPageTest extends BaseTest {
         Assert.assertTrue(addStudentPage.isDIsplayedButtonSubmit(), "TextLabelEmail is not displayed at AddStudentPage");
 
     }
-    UpdatedStudentPage updatedStudentPage = new UpdatedStudentPage();
-    @Test
-    void testInputFuтctionalAddStudentPage() {
-        StudentsPage studentsPage = new StudentsPage();
-        studentsPage.openPage();
-        studentsPage.clickButtonAddStudent();
-        addStudentPage.typeFirstName()
-                      .typeLastName()
-                      .typeEmail()
-                      .clickButtonSubmit();
 
-        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_FIRST_NAME));
-        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_LAST_NAME));
-        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_EMAIL));
-    }
     @Test
-    public void testTextAndButtonUpdateStudentPage() {
+   public void testInputFuтctionalAddStudentPage() {
         StudentsPage studentsPage = new StudentsPage();
         studentsPage.openPage();
-     //  studentsPage.clickButtonFirstLineUpdateInListStudent();
         studentsPage.clickButtonAddStudent();
         addStudentPage.typeFirstName()
                 .typeLastName()
                 .typeEmail()
                 .clickButtonSubmit();
-    System.out.println(updatedStudentPage.BUTTON_UPDATE_CREATED_STUDENT.toString()+"/////");
-    updatedStudentPage.clickButtonUpdateCreatedStudent();
-
-        Assert.assertTrue(updateStudentPage.isDIsplayedTextTitleUpdateStudentPage(), "TextTitle is not displayed at UpdateStudentPage");
-        Assert.assertTrue(updateStudentPage.isDIsplayedTextLabelFirstName(), "TextLabelFirstName is not displayed at UpdateStudentPage");
-        Assert.assertTrue(updateStudentPage.isDIsplayedTextLabelLastName(), "TextLabelLastName is not displayed at UpdateStudentPage");
-        Assert.assertTrue(updateStudentPage.isDIsplayedTextLabelEmail(), "TextLabelEmail is not displayed at UpdateStudentPage");
-        Assert.assertTrue(updateStudentPage.isDIsplayedButtonSubmit(), "TextLabelEmail is not displayed at UpdateStudentPage");
+        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_FIRST_NAME));
+        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_LAST_NAME));
+        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_EMAIL));
+        updatedStudentPage.clickButtonDeleteCreatedStudent();
     }
-    UpdateStudentPage updateStudentPage = new UpdateStudentPage();
+
     @Test
-    public void testUpdateFuтctionalUpdateStudentPage(){
+    public void testTextAndButtonUpdateStudentPage() {
         StudentsPage studentsPage = new StudentsPage();
         studentsPage.openPage();
         studentsPage.clickButtonAddStudent();
@@ -93,16 +74,35 @@ public class StudentsPageTest extends BaseTest {
                 .typeEmail()
                 .clickButtonSubmit();
         updatedStudentPage.clickButtonUpdateCreatedStudent();
-        updateStudentPage.typeFirstName()
+        Assert.assertTrue(updateStudentPage.isDIsplayedTextTitleUpdateStudentPage(), "TextTitle is not displayed at UpdateStudentPage");
+        Assert.assertTrue(updateStudentPage.isDIsplayedTextLabelFirstName(), "TextLabelFirstName is not displayed at UpdateStudentPage");
+        Assert.assertTrue(updateStudentPage.isDIsplayedTextLabelLastName(), "TextLabelLastName is not displayed at UpdateStudentPage");
+        Assert.assertTrue(updateStudentPage.isDIsplayedTextLabelEmail(), "TextLabelEmail is not displayed at UpdateStudentPage");
+        Assert.assertTrue(updateStudentPage.isDIsplayedButtonSubmit(), "TextLabelEmail is not displayed at UpdateStudentPage");
+    }
+
+    @Test
+    public void testUpdateFuтctionalUpdateStudentPage() {
+        StudentsPage studentsPage = new StudentsPage();
+        studentsPage.openPage();
+        studentsPage.clickButtonAddStudent();
+        addStudentPage.typeFirstName()
                 .typeLastName()
                 .typeEmail()
                 .clickButtonSubmit();
-               Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_FIRST_NAME));
-        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_LAST_NAME));
-        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_EMAIL));
+        updatedStudentPage.clickButtonUpdateCreatedStudent();
+        updateStudentPage.typeUpdateFirstName()
+                .typeUpdateLastName()
+                .typeUpdateEmail()
+                .clickButtonSubmit();
+        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.UPDATE_NEW_STUDENT_FIRST_NAME));
+        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.UPDATE_NEW_STUDENT_LAST_NAME));
+        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.UPDATE_NEW_STUDENT_EMAIL));
+        updatedStudentPage.clickUpdatedButtonDeleteCreatedStudent();
     }
+
     @Test
-    public void testDeleteStudentStudentPage(){
+    public void testDeleteStudentStudentPage() {
         StudentsPage studentsPage = new StudentsPage();
         studentsPage.openPage();
         studentsPage.clickButtonAddStudent();
@@ -112,7 +112,6 @@ public class StudentsPageTest extends BaseTest {
                 .clickButtonSubmit();
         updatedStudentPage.clickButtonDeleteCreatedStudent();
     }
-
-    }
+}
 
 
