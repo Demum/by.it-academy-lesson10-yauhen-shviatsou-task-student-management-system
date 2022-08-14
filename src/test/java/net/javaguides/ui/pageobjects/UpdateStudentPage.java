@@ -4,11 +4,11 @@ import net.javaguides.ui.utils.RandomValue;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AddStudentPage extends StudentsPage {
-    public  static  String newFirstName = RandomValue.setStudentFirstName();
+public class UpdateStudentPage extends BasePage {
+    public static String newFirstName = RandomValue.setStudentFirstName();
     public static String newLastName = RandomValue.setStudentLastName();
     public static String newEmail = RandomValue.setStudentEmail();
-    @FindBy(xpath = "//h1[text()=' Create New Student ']")
+    @FindBy(xpath = "//h1[text()=' Update Student ']")
     private WebElement textTitle;
     @FindBy(xpath = "//label[text()=' Student First Name ']")
     private WebElement textLabelFirstName;
@@ -25,7 +25,7 @@ public class AddStudentPage extends StudentsPage {
     @FindBy(xpath = "//input[@name='email']")
     private WebElement inputEmail;
 
-    public boolean isDIsplayedTextTitleAddStudentPage() {
+    public boolean isDIsplayedTextTitleUpdateStudentPage() {
         waitForVisibilityOfElement(textTitle);
         return textTitle.isDisplayed();
 
@@ -51,28 +51,27 @@ public class AddStudentPage extends StudentsPage {
         return buttonSubmit.isDisplayed();
     }
 
-    public AddStudentPage typeFirstName() {
+    public UpdateStudentPage typeFirstName() {
         inputFirstName.clear();
         inputFirstName.sendKeys(newFirstName);
         return this;
     }
 
-    public AddStudentPage typeLastName() {
+    public UpdateStudentPage typeLastName() {
         inputLastName.clear();
         inputLastName.sendKeys(newLastName);
         return this;
     }
 
-    public AddStudentPage typeEmail() {
+    public UpdateStudentPage typeEmail() {
         inputEmail.clear();
         inputEmail.sendKeys(newEmail);
         return this;
     }
 
-    public AddStudentPage clickButtonSubmit() {
+    public UpdateStudentPage clickButtonSubmit() {
         waitForElementToBeClickable(buttonSubmit);
         buttonSubmit.click();
         return this;
     }
-
 }

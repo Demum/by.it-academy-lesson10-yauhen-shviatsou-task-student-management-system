@@ -6,9 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class StudentsPage extends BasePage{
-    @FindBy(xpath = "//button[@data-testid='more-button']")
-    private WebElement buttonMoreOptions;
-
     @FindBy(xpath = "//h1[text()=' List Students ']")
     private WebElement textTitle;
 
@@ -41,6 +38,8 @@ public class StudentsPage extends BasePage{
 
     @FindBy(xpath = "//tr[1]//a[text()='Delete']")
     private WebElement firstLineDeleteInListStudents;
+
+
 
     public StudentsPage openPage(){
         driver.get(Constants.BASE_URL);
@@ -84,6 +83,13 @@ public class StudentsPage extends BasePage{
     public StudentsPage clickButtonAddStudent (){
         waitForElementToBeClickable(buttonAddStudent);
         buttonAddStudent.click();
+        return this;
+    }
+
+
+    public StudentsPage clickButtonFirstLineUpdateInListStudent(){
+        waitForElementToBeClickable(firstLineUpdateInListStudents);
+        firstLineUpdateInListStudents.click();
         return this;
     }
 }
