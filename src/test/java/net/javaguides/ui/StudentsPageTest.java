@@ -79,6 +79,8 @@ public class StudentsPageTest extends BaseTest {
         Assert.assertTrue(updateStudentPage.isDIsplayedTextLabelLastName(), "TextLabelLastName is not displayed at UpdateStudentPage");
         Assert.assertTrue(updateStudentPage.isDIsplayedTextLabelEmail(), "TextLabelEmail is not displayed at UpdateStudentPage");
         Assert.assertTrue(updateStudentPage.isDIsplayedButtonSubmit(), "TextLabelEmail is not displayed at UpdateStudentPage");
+        studentsPage.openPage();
+        updatedStudentPage.clickButtonDeleteCreatedStudent();
     }
 
     @Test
