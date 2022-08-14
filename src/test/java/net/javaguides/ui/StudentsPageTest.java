@@ -76,6 +76,22 @@ public class StudentsPageTest extends BaseTest {
         Assert.assertTrue(updateStudentPage.isDIsplayedTextLabelEmail(), "TextLabelEmail is not displayed at UpdateStudentPage");
         Assert.assertTrue(updateStudentPage.isDIsplayedButtonSubmit(), "TextLabelEmail is not displayed at UpdateStudentPage");
     }
+    @Test
+    public void testUpdateFuтctionalUpdateStudentPage(){
+        StudentsPage studentsPage = new StudentsPage();
+        studentsPage.openPage();
+        studentsPage.clickButtonFirstLineUpdateInListStudent();
+        UpdateStudentPage updateStudentPage = new UpdateStudentPage();
+        updateStudentPage.typeFirstName()
+                .typeLastName()
+                .typeEmail()
+                .clickButtonSubmit();
+        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_FIRST_NAME));
+        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_LAST_NAME));
+        Assert.assertTrue(updatedStudentPage.isDisplayed(UpdatedStudentPage.NEW_STUDENT_EMAIL));
+    }
 
-}
+
+    }
+
 
