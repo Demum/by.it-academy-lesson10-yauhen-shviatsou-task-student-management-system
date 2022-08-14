@@ -8,11 +8,11 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
 
-    @BeforeClass
-    public static void actionStudent() {
- //       StudentStep.studentStepsAddUpdateEditorDelete();
+//    @BeforeClass
+//    public static void actionStudent() {
+// //       StudentStep.studentStepsAddUpdateEditorDelete();
 
-    }
+//    }
 
     @AfterMethod
     public void finishTest() {

@@ -46,53 +46,9 @@ public class StudentsPage extends BasePage{
         driver.get(Constants.BASE_URL);
         return this;
     }
-    public WebElement getTextTitle() {
-        return textTitle;
-    }
-
-    public WebElement getButtonAddStudent() {
-        return buttonAddStudent;
-    }
-
-    public WebElement getTextTableTitleStudentFirstName() {
-        return textTableTitleStudentFirstName;
-    }
-
-    public WebElement getTextTableTitleStudentLastName() {
-        return textTableTitleStudentLastName;
-    }
-
-    public WebElement getTextTableTitleStudentEmail() {
-        return textTableTitleStudentEmail;
-    }
-
-    public WebElement getTextTableTitleActions() {
-        return textTableTitleActions;
-    }
-
-    public WebElement getFirstLineFirstNameInListStudents() {
-        return firstLineFirstNameInListStudents;
-    }
-
-    public WebElement getFirstLineLastNameInListStudents() {
-        return firstLineLastNameInListStudents;
-    }
-
-    public WebElement getFirstLineEmailInListStudents() {
-        return firstLineEmailInListStudents;
-    }
-
-    public WebElement getFirstLineUpdateInListStudents() {
-        return firstLineUpdateInListStudents;
-    }
-
-    public WebElement getFirstLineDeleteInListStudents() {
-        return firstLineDeleteInListStudents;
-    }
-
 
     public boolean isDisplayedTitle() {
-        return textTitle.isDisplayed();
+           return textTitle.isDisplayed();
     }
     public boolean isDisplayedButtonAddStudent(){
         return   buttonAddStudent.isDisplayed();

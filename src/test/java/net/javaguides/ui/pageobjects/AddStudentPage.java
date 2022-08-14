@@ -1,38 +1,74 @@
 package net.javaguides.ui.pageobjects;
 
-import net.javaguides.ui.utils.Constants;
+import com.google.common.annotations.VisibleForTesting;
 import net.javaguides.ui.utils.RandomValue;
-import org.openqa.selenium.By;
-
-import static net.javaguides.ui.utils.RandomValue.*;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class AddStudentPage extends StudentsPage {
-    public static final By TEXT_TITLE = By.xpath("//h1[text()=' Create New Student ']");
-    public static final By TEXT_LABEL_FIRST_NAME = By.xpath("//label[text()=' Student First Name ']");
-    public static final By TEXT_LABEL_LAST_NAME = By.xpath("//label[text()=' Student Last Name ']");
-    public static final By TEXT_LABEL_EMAIL = By.xpath("//label[text()=' Student Email ']");
-    public static final By BUTTON_SUBMIT = By.xpath("//button[contains(text(),'Submit')]");
+    @FindBy(xpath = "//h1[text()=' Create New Student ']")
+    private WebElement textTitle;
 
-    public static final By INPUT_FIRST_NAME = By.xpath("//input[@name='firstName']");
-    public static final By INPUT_LAST_NAME = By.xpath("//input[@name='lastName']");
-    public static final By INPUT_EMAIL = By.xpath("//input[@name='email']");
+    @FindBy(xpath = "//label[text()=' Student First Name ']")
+    private WebElement textLabelFirstName;
+    @FindBy(xpath = "//label[text()=' Student Last Name ']")
+    private WebElement textLabelLastName;
+    @FindBy(xpath = "//label[text()=' Student Email ']")
+    private WebElement textLabelEmail;
+    @FindBy(xpath = "//button[contains(text(),'Submit')]")
+    private WebElement buttonSubmit;
+    @FindBy(xpath = "//input[@name='firstName']")
+    private WebElement inputFirstName;
+    @FindBy(xpath = "//input[@name='lastName']")
+    private WebElement inputLastName;
+    @FindBy(xpath = "//input[@name='email']")
+    private WebElement inputEmail;
 
-    public boolean isDIsplayedTetTitle(){
-        return driver.findElement(TEXT_TITLE).isDisplayed();
-    }
-    public boolean isDIsplayedLabelFirstName(){
-        return driver.findElement(TEXT_LABEL_FIRST_NAME).isDisplayed();
-    }
-    public boolean isDIsplayedLabelLastName(){
-        return driver.findElement(TEXT_LABEL_LAST_NAME).isDisplayed();
-    }
-    public boolean isDIsplayedLabelEmail(){
-        return driver.findElement(TEXT_LABEL_EMAIL).isDisplayed();
-    }
-    public boolean isDIsplayedLabelButtonSubmit(){
-        return driver.findElement(BUTTON_SUBMIT).isDisplayed();
-    }
 
+    public boolean isDIsplayedTextTitleAddStudentPage(){
+        waitForVisibilityOfElement(textTitle);
+        return textTitle.isDisplayed();
+
+    }
+    public boolean isDIsplayedTextLabelFirstName(){
+        waitForVisibilityOfElement(textLabelFirstName);
+        return textLabelFirstName.isDisplayed();
+    }
+    public boolean isDIsplayedTextLabelLastName(){
+        waitForVisibilityOfElement(textLabelLastName);
+        return textLabelLastName.isDisplayed();
+    }
+    public boolean isDIsplayedTextLabelEmail(){
+        waitForVisibilityOfElement(textLabelEmail);
+        return textLabelEmail.isDisplayed();
+    }
+    public boolean isDIsplayedButtonSubmit(){
+        waitForVisibilityOfElement(buttonSubmit);
+        return buttonSubmit.isDisplayed();
+    }
+    public  static String newFirstName=RandomValue.setStudentFirstName();
+    public  static String newLastName=RandomValue.setStudentFirstName();
+    public  static String newEmail=RandomValue.setStudentFirstName();
+     public AddStudentPage typeFirstName(){
+        inputFirstName.clear();
+inputFirstName.sendKeys(newFirstName);
+return this;
+ }
+    public AddStudentPage typeLastName(){
+        inputLastName.clear();
+        inputLastName.sendKeys(newLastName);
+        return this;
+    }
+    public AddStudentPage typeEmail(){
+        inputEmail.clear();
+        inputEmail.sendKeys(newEmail);
+        return this;
+    }
+    public AddStudentPage clickButtonSubmit(){
+        waitForElementToBeClickable(buttonSubmit);
+        buttonSubmit.click();
+        return this;
+    }
 //    @Override
 //    public AddStudentPage clickButtonAddStudent() {
 //                driver.findElement(INPUT_FIRST_NAME).sendKeys(RandomValue.firstName);
